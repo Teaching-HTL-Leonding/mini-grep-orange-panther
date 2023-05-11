@@ -52,12 +52,14 @@ for (int i = 0; i < fileMatches.Length; i++)
 
             if (line.Contains(searchText))
             {
-                Console.WriteLine($"    {count}: {line}");
+                string lineString = line.Replace(searchText, $">>>{searchText.ToUpper()}<<<");
+                Console.WriteLine($"    {count}: {lineString}");
                 summaryLines++;
                 for (int j = 0; j < line.Length - 5; j++)
                 {
                     if (line.Substring(j, 5) == searchText)
                     {
+                        
                         summaryOccurences++;
                     }
                 }
